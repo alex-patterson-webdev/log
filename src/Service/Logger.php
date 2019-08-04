@@ -7,7 +7,7 @@ namespace Arp\Log\Service;
  *
  * Custom logger for the Spectrum Application.
  *
- * @package Spectrum\Log\Service
+ * @package Arp\Log\Service
  */
 class Logger implements LoggerInterface
 {
