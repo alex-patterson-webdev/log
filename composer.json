@@ -1,5 +1,5 @@
 {
-  "name": "alex-patterson-webdev/arp-log",
+  "name": "alex-patterson-webdev/log",
   "version" : "1.0.0",
   "authors": [
     {
@@ -10,7 +10,7 @@
   "require" : {
     "php" : "^5.6 || ^7.0",
     "psr/log" : "~1.1",
-    "alex-patterson-webdev/arp-std-lib" : "~1.0"
+    "alex-patterson-webdev/stdlib" : "~1.0"
   },
   "require-dev" : {
     "phpunit/phpunit" : "~5.7"
@@ -24,5 +24,11 @@
     "psr-4": {
       "ArpTest\\Log\\" : "test/"
     }
-  }
+  },
+  "repositories" : [
+    {
+      "type": "path",
+      "url": "/home/alexp/www/repositories/alex-patterson-webdev/stdlib"
+    }
+  ]
 }
