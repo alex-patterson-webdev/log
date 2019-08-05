@@ -2,6 +2,8 @@
 
 namespace Arp\Log\Service;
 
+use Psr\Log\LoggerInterface;
+
 /**
  * Logger
  *
