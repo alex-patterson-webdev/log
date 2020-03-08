@@ -10,8 +10,7 @@
   "require" : {
     "php" : "^7.2",
     "psr/log" : "^1.1",
-    "zendframework/zend-log" : "^2.10",
-    "alex-patterson-webdev/stdlib" : "dev-master"
+    "alex-patterson-webdev/factory" : "^1"
   },
   "require-dev" : {
     "phpunit/phpunit" : "^8"
@@ -23,13 +22,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "ArpTest\\Log\\" : "test/"
+      "ArpTest\\Log\\" : "test/phpunit/"
     }
-  },
-  "repositories" : [
-    {
-      "type": "vcs",
-      "url": "/home/alexp/www/git/alex-patterson-webdev/stdlib.git"
-    }
-  ]
+  }
 }
