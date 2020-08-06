@@ -17,7 +17,7 @@ trait LogProviderFactoryTrait
     /**
      * @var FactoryInterface
      */
-    protected $logFactory;
+    protected $loggerFactory;
 
     /**
      * Create a new logger instance.
@@ -31,7 +31,7 @@ trait LogProviderFactoryTrait
     protected function createLogger($logger): LoggerInterface
     {
         if (is_array($logger)) {
-            $logger = $this->getLogFactory()->create($logger);
+            $logger = $this->getLoggerFactory()->create($logger);
         }
 
         if (!$logger instanceof LoggerInterface) {
@@ -46,11 +46,11 @@ trait LogProviderFactoryTrait
      *
      * @return FactoryInterface
      */
-    protected function getLogFactory(): FactoryInterface
+    protected function getLoggerFactory(): FactoryInterface
     {
-        if (null === $this->logFactory) {
-            $this->logFactory = new NullLoggerFactory();
+        if (null === $this->loggerFactory) {
+            $this->loggerFactory = new NullLoggerFactory();
         }
-        return $this->logFactory;
+        return $this->loggerFactory;
     }
 }
