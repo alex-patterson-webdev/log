@@ -18,11 +18,11 @@ class PsrLoggerFactory extends AbstractLoggerFactory
      *
      * @param array $config The optional factory configuration options.
      *
-     * @return mixed
+     * @return PsrLoggerAdapter
      *
      * @throws FactoryException If the service cannot be created.
      */
-    public function create(array $config = [])
+    public function create(array $config = []): PsrLoggerAdapter
     {
         return new PsrLoggerAdapter($this->createLaminasLogger($config));
     }
