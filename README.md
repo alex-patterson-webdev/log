@@ -4,10 +4,10 @@
 
 # About
 
-Logging components for the ARP framework, including a PSR-3 compatible Logger wrapper.
+Logging components for the ARP framework, including a PSR-3 compatible Logger implemented using Laminas Log.
 
 # Installation
 
 Installation via [composer](https://getcomposer.org).
 
-    require alex-patterson-webdev/log ^1
+    require alex-patterson-webdev/log ^0.1
