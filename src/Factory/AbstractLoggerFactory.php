@@ -24,7 +24,7 @@ abstract class AbstractLoggerFactory implements FactoryInterface
     /**
      * @var array
      */
-    private $defaultConfig;
+    protected $defaultConfig;
 
     /**
      * @param LaminasLoggerFactory|null $loggerFactory
