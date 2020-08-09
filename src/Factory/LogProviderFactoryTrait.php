@@ -20,11 +20,6 @@ trait LogProviderFactoryTrait
     protected $loggerFactory;
 
     /**
-     * @var string
-     */
-    protected $defaultLoggerFactory = NullLoggerFactory::class;
-
-    /**
      * Create a new logger instance.
      *
      * @param array|LoggerInterface $logger
@@ -59,12 +54,14 @@ trait LogProviderFactoryTrait
     /**
      * Return the log factory instance.
      *
+     * @param array $factoryOptions
+     *
      * @return FactoryInterface
      */
-    protected function getLoggerFactory(): FactoryInterface
+    protected function getLoggerFactory(array $factoryOptions = []): FactoryInterface
     {
         if (null === $this->loggerFactory) {
-            $this->setLoggerFactory($this->createDefaultLoggerFactory());
+            $this->setLoggerFactory($this->createDefaultLoggerFactory($factoryOptions));
         }
         return $this->loggerFactory;
     }
@@ -72,12 +69,20 @@ trait LogProviderFactoryTrait
     /**
      * Create the default logger instance.
      *
-     * @param array $options  The optional logger factory creation options
+     * @param array $options The optional logger factory creation options
      *
      * @return FactoryInterface
      */
     protected function createDefaultLoggerFactory(array $options = []): FactoryInterface
     {
-        return new $this->defaultLoggerFactory;
+        $className = NullLoggerFactory::class;
+
+        if (isset($this->defaultLoggerFactory)) {
+            $className = $this->defaultLoggerFactory;
+        } elseif (isset($options['class_name'])) {
+            $className = $options['class_name'];
+        }
+
+        return new $className();
     }
 }
