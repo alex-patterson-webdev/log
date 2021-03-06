@@ -8,6 +8,7 @@ use Arp\Factory\Exception\FactoryException;
 use Arp\Factory\FactoryInterface;
 use Laminas\Log\Logger as LaminasLogger;
 use Laminas\Log\Processor\ProcessorInterface;
+use Laminas\Log\Writer\Noop;
 use Laminas\Log\Writer\WriterInterface;
 
 /**
@@ -35,9 +36,13 @@ class LaminasLoggerFactory implements FactoryInterface
 
         $logger = new LaminasLogger($options);
 
-        if (!empty($config['writers'])) {
-            $this->addWriters($logger, $config['writers']);
+        if (empty($config['writers'])) {
+            $config['writers'] = [
+                Noop::class => [],
+            ];
         }
+
+        $this->addWriters($logger, $config['writers']);
 
         if (!empty($config['processors'])) {
             $this->addProcessors($logger, $config['processors']);
