@@ -32,8 +32,6 @@
     "test": "php vendor/bin/phpunit --coverage-clover=coverage.xml"
   },
   "config": {
-    "secure-http": false,
-    "preferred-install": "dist",
     "optimize-autoloader": true,
     "sort-packages": true
   }
